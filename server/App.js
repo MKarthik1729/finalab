@@ -2,7 +2,6 @@ const express = require('express')
 const cors =  require('cors')
 const rfs = require('rotating-file-stream')
 const morgan = require('morgan')
-const coookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const multer = require('multer')
@@ -21,7 +20,6 @@ const storageEngine = multer.diskStorage({
         });
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(coookieParser());
 app.use(express.json());
 app.use(cors());
 app.use(helmet())
