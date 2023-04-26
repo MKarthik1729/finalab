@@ -29,7 +29,7 @@ function App() {
     console.log(aa)
 
     axios.post('http://localhost:3300/',formData)
-      .then(ele =>console.log(ele))
+      .then(ele =>{setInsert(false)})
       .catch(err =>  console.log(err))
 
   }

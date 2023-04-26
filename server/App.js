@@ -1,5 +1,6 @@
 const express = require('express')
 const cors =  require('cors')
+const rfs = require('rotating-file-stream')
 const morgan = require('morgan')
 const coookieParser = require("cookie-parser");
 const helmet = require("helmet");
@@ -23,6 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(coookieParser());
 app.use(express.json());
 app.use(cors());
+app.use(helmet())
+const logStream = rfs.createStream("storage.log", {
+    interval: "1d",
+    path: path.join(__dirname, "logs"),
+  });
+  app.use(morgan("combined", { stream: logStream, immediate: true}));
 
 var data = []
 
