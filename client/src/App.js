@@ -56,14 +56,14 @@ function App() {
 </label>      
 <label>Phone 
   <input 
-  type='text'
+  type='number'
   ref={phone}
   
   /><br /><br />
 </label>      
 <label>Email
   <input 
-  type='text'
+  type='email'
   ref={email}
   
   /><br /><br />
